@@ -1,3 +1,10 @@
+'''
+The code are used to assess the potential carbon improvement through adjusting HUMAN practices
+First, various images are created, then statistics on the images are made
+Note the the codes are not optimized for performance but just used to realize the basic functions
+'''
+
+
 import ee
 from functools import partial
 
@@ -41,7 +48,7 @@ landforms_clip = ee.Image("users/zongyaosha/Iwahashi").clip(roi).reproject('EPSG
 
 #clip and reproject
 soil_clip = hwsd.clip(roi).reproject('EPSG:4326', None, scaleSize)
-neiborhoodSize=40 # 40 pixels=20km
+neiborhoodSize=40 # Estimated to be 40 pixels=20km
 neighborhoodKernel=ee.Kernel.circle(neiborhoodSize)
 
 #percentile 90, target maximum NPP level for distance-constrained zonal analysis
